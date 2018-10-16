@@ -1,0 +1,11 @@
+Package: cidacsdict
+Title: Read and translate data from CIDACS dictionaries
+Version: 0.0.1
+Authors@R: person("Ryan", "Hafen", email = "rhafen@gmail.com", role = c("aut", "cre"))
+Description: Utilities to read and translate data from CIDACS dictionaries, including data directly from DATASUS. Provides methods to translate a pre-defined exhaustive dictionary from Portuguese to English as well as recoding categorical variables to have meaningful factor levels.
+Depends: R (>= 3.5.1)
+License: Apache License 2.0 | file LICENSE
+Encoding: UTF-8
+LazyData: true
+URL: https://github.com/ki-tools/cidacsdict
+BugReports: https://github.com/ki-tools/cidacsdict/issues
