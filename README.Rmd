@@ -1,0 +1,81 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r setup, include = FALSE}
+# rmarkdown::render("README.Rmd")
+# system("open README.html")
+# unlink("README.html")
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+# cidacsdict
+
+This R package provides utilities to read, transform, translate, and clean data using CIDACS dictionaries, including data directly from DATASUS. It includes methods to translate a pre-defined exhaustive dictionary from Portuguese to English as well as recoding categorical variables to have meaningful factor levels.
+
+## Installation
+
+``` r
+# install.packages("devtools")
+devtools::install_github("cidacsdict")
+```
+
+## Usage
+
+A [data dictionary provided by CIDACS](https://gcgh.grandchallenges.org/sites/default/files/additional-materials/CIDACS%20Dicionario%20Dados%20Coorte%20100M.PDF) is available in this package as a dataset, `cdcs_dict`.
+
+```{r cdcs_dict}
+cdcs_dict
+```
+
+This provides variable names, labels, types, and mappings in English and Portuguese.
+
+Mappings provide a transformation from integer encoding of categorical variables to more meaningful factor levels. For example, the first record in the dictionary is for "household location code", and the mapping is:
+
+```{r mapping}
+cdcs_dict$map_en[[1]]
+```
+
+### Reading Data
+
+There is a utility function to read in data obtained publicly from DATASUS:
+
+```r
+fin <- "ftp://ftp.datasus.gov.br/dissemin/publicos/SINASC/NOV/DNRES/DNRO2013.DBC"
+fout <- tempfile(fileext = ".DBC")
+download.file(fin, destfile = fout)
+d <- read_datasus(fout)
+```
+
+Note that this requires an ftp connection within Brazil.
+
+### Transforming and Cleaning Data
+
+Two synthetic datasets have been included with the package to illustrate how transforming and cleaning data works. These datasets resemble data from the DATASUS SINASC and SIM databases. These datasets are `sinasc_example` and `sim_example`.
+
+A function `transform_data()` will take a dataset and apply a given dictionary to it, transforming the variables to the appropriate types and mapping categorical variables.
+
+A function `clean_data()` takes the resulting transformed data and performs some additional cleaning steps based on experience with this type of data. Cleaning includes removing implausible variables and adding state and region codes based on provided municipality codes, using the [brazilmunis](https://github.com/ki-tools/brazilmunis) package.
+
+```{r clean_transform}
+# look at original data
+str(sinasc_example)
+
+d <- transform_data(sinasc_example, subset(cdcs_dict, db == "SINASC"))
+d <- clean_data(d)
+
+# look at the result
+str(d)
+```
+
+<!--
+## Reference
+
+Other DATASUS packages, etc.
+-->
