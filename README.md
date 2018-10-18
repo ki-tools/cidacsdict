@@ -1,5 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
+[![Travis build status](https://travis-ci.org/ki-tools/cidacsdict.svg?branch=master)](https://travis-ci.org/ki-tools/cidacsdict) <!--[![Coverage status](https://codecov.io/gh/ki-tools/cidacsdict/branch/master/graph/badge.svg)](https://codecov.io/github/ki-tools/cidacsdict?branch=master)-->
+
 cidacsdict
 ==========
 

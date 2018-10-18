@@ -15,6 +15,10 @@ knitr::opts_chunk$set(
   out.width = "100%"
 )
 ```
+
+[![Travis build status](https://travis-ci.org/ki-tools/cidacsdict.svg?branch=master)](https://travis-ci.org/ki-tools/cidacsdict)
+<!--[![Coverage status](https://codecov.io/gh/ki-tools/cidacsdict/branch/master/graph/badge.svg)](https://codecov.io/github/ki-tools/cidacsdict?branch=master)-->
+
 # cidacsdict
 
 This R package provides utilities to read, transform, translate, and clean data using CIDACS dictionaries, including data directly from DATASUS. It includes methods to translate a pre-defined exhaustive dictionary from Portuguese to English as well as recoding categorical variables to have meaningful factor levels.
