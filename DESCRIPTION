@@ -17,5 +17,5 @@ Imports: read.dbc,
     foreign,
     tibble
 Remotes:
-  ki-tools/brazilmunis
+  ki-tools/brazilgeo
 RoxygenNote: 6.1.0
