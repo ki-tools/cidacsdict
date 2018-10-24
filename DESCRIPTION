@@ -13,7 +13,7 @@ BugReports: https://github.com/ki-tools/cidacsdict/issues
 Suggests:
     covr
 Imports: read.dbc,
-    brazilmunis,
+    brazilgeo,
     foreign,
     tibble
 Remotes:
