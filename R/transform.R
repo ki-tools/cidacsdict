@@ -159,7 +159,7 @@ clean_data <- function(data) {
     data$m_age_yrs[data$m_age_yrs == 99] <- NA
   }
 
-  mc <- brazilmunis::br_muni_codes[, c("muni_code", "state_code", "micro_code", "meso_code")]
+  mc <- brazilgeo::br_muni_codes[, c("muni_code", "state_code", "micro_code", "meso_code")]
   mc$muni_code <- substr(mc$muni_code, 1, 6)
   mc_nms <- names(mc)
 

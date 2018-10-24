@@ -65,7 +65,7 @@ Two synthetic datasets have been included with the package to illustrate how tra
 
 A function `transform_data()` will take a dataset and apply a given dictionary to it, transforming the variables to the appropriate types and mapping categorical variables.
 
-A function `clean_data()` takes the resulting transformed data and performs some additional cleaning steps based on experience with this type of data. Cleaning includes removing implausible variables and adding state and region codes based on provided municipality codes, using the [brazilmunis](https://github.com/ki-tools/brazilmunis) package.
+A function `clean_data()` takes the resulting transformed data and performs some additional cleaning steps based on experience with this type of data. Cleaning includes removing implausible variables and adding state and region codes based on provided municipality codes, using the [brazilgeo](https://github.com/ki-tools/brazilgeo) package.
 
 ```{r clean_transform}
 # look at original data
