@@ -160,15 +160,15 @@ clean_data <- function(data) {
   }
 
   mc <- brazilgeo::br_muni_codes[, c("muni_code", "state_code", "micro_code", "meso_code")]
+  # it turns out that the 7th character of municipality codes doesn't matter
   mc$muni_code <- substr(mc$muni_code, 1, 6)
   mc_nms <- names(mc)
 
-  # it turns out that the 7th character of municipality codes doesn't matter
   idx <- which(grepl("_muni_code", nms))
   if (length(idx) > 0) {
     message("Fixing muni codes...")
     for (cur_nm in nms[idx]) {
-      # data[[cur_nm]] <- substr(data[[cur_nm]], 1, 6)
+      data[[cur_nm]] <- substr(data[[cur_nm]], 1, 6)
       prefix <- gsub("(.*)_muni_code", "\\1", cur_nm)
       names(mc) <- paste0(prefix, "_", mc_nms)
       cur_muni <- paste0(prefix, "_muni_code")
